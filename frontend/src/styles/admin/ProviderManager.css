@@ -1,0 +1,80 @@
+.config-form-card {
+  background-color: #16213e;
+  border-radius: 12px;
+  padding: 30px;
+  border: 1px solid #0f3460;
+}
+
+.config-description {
+  color: #a0a0a0;
+  font-size: 14px;
+  margin: 0 0 28px 0;
+}
+
+.config-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.config-form-grid .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.config-form-grid .form-group label {
+  color: #a0a0a0;
+  font-size: 13px;
+}
+
+.config-form-grid .form-group input,
+.config-form-grid .form-group select {
+  padding: 12px;
+  background-color: #1a1a2e;
+  border: 1px solid #0f3460;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.config-form-grid .form-group input:focus,
+.config-form-grid .form-group select:focus {
+  border-color: #e94560;
+}
+
+.config-form-grid .form-group select:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.form-group-full {
+  grid-column: 1 / -1;
+}
+
+.label-hint {
+  color: #6b7280;
+  font-size: 12px;
+}
+
+.config-form-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.config-saved-msg {
+  color: #10b981;
+  font-size: 14px;
+}
+
+.config-active-badge {
+  background-color: #10b9811a;
+  color: #10b981;
+  padding: 5px 12px;
+  border-radius: 15px;
+  font-size: 13px;
+}
