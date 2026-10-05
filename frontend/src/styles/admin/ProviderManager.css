@@ -1,12 +1,13 @@
 .config-form-card {
-  background-color: #16213e;
+  background-color: #FFFFFF;
   border-radius: 12px;
   padding: 30px;
-  border: 1px solid #0f3460;
+  border: 1px solid #E5E7EB;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
 }
 
 .config-description {
-  color: #a0a0a0;
+  color: #6B7280;
   font-size: 14px;
   margin: 0 0 28px 0;
 }
@@ -24,17 +25,17 @@
 }
 
 .config-form-grid .form-group label {
-  color: #a0a0a0;
+  color: #6B7280;
   font-size: 13px;
 }
 
 .config-form-grid .form-group input,
 .config-form-grid .form-group select {
   padding: 12px;
-  background-color: #1a1a2e;
-  border: 1px solid #0f3460;
+  background-color: #FFFFFF;
+  border: 1px solid #E5E7EB;
   border-radius: 8px;
-  color: #fff;
+  color: #1E2130;
   font-size: 14px;
   outline: none;
   transition: border-color 0.2s;
@@ -42,7 +43,7 @@
 
 .config-form-grid .form-group input:focus,
 .config-form-grid .form-group select:focus {
-  border-color: #e94560;
+  border-color: #5B4FE0;
 }
 
 .config-form-grid .form-group select:disabled {

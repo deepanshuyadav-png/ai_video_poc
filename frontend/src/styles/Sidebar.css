@@ -1,31 +1,31 @@
 .sidebar {
   width: 260px;
   min-width: 260px;
-  background-color: #202123;
+  background-color: #FAFAFB;
   display: flex;
   flex-direction: column;
   height: 100vh;
-  border-right: 1px solid #4d4d4f;
+  border-right: 1px solid #E5E7EB;
 }
 
 .sidebar-header {
   padding: 20px;
-  border-bottom: 1px solid #4d4d4f;
+  border-bottom: 1px solid #E5E7EB;
 }
 
 .sidebar-header h2 {
   font-size: 16px;
   font-weight: 600;
-  color: #ececf1;
+  color: #1E2130;
 }
 
 .new-request-btn {
   margin: 15px;
   padding: 12px 15px;
   background-color: transparent;
-  border: 1px solid #4d4d4f;
+  border: 1px solid #E5E7EB;
   border-radius: 8px;
-  color: #ececf1;
+  color: #1E2130;
   font-size: 14px;
   cursor: pointer;
   display: flex;
@@ -35,7 +35,7 @@
 }
 
 .new-request-btn:hover {
-  background-color: #2a2b32;
+  background-color: #F3F4F6;
 }
 
 .new-request-btn span {
@@ -49,7 +49,7 @@
 }
 
 .no-requests {
-  color: #8e8ea0;
+  color: #6B7280;
   text-align: center;
   padding: 20px;
   font-size: 14px;
@@ -64,16 +64,17 @@
 }
 
 .request-item:hover {
-  background-color: #2a2b32;
+  background-color: #F3F4F6;
 }
 
 .request-item.active {
-  background-color: #343541;
+  background-color: #EEF0FD;
+  color: #5B4FE0;
 }
 
 .request-preview {
   font-size: 14px;
-  color: #ececf1;
+  color: #1E2130;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -95,7 +96,7 @@
 
 .status-badge.pending {
   background-color: #f59e0b;
-  color: #000;
+  color: #1E2130;
 }
 
 .status-badge.processing {
@@ -115,31 +116,31 @@
 
 .request-date {
   font-size: 11px;
-  color: #8e8ea0;
+  color: #6B7280;
 }
 
 .sidebar-footer {
   padding: 15px;
-  border-top: 1px solid #4d4d4f;
+  border-top: 1px solid #E5E7EB;
 }
 
 .admin-link-btn {
   width: 100%;
   padding: 10px;
   margin-bottom: 10px;
-  background-color: #2a2b32;
-  border: 1px solid #4d4d4f;
+  background-color: #F3F4F6;
+  border: 1px solid #E5E7EB;
   border-radius: 6px;
-  color: #ececf1;
+  color: #1E2130;
   font-size: 13px;
   cursor: pointer;
   transition: all 0.2s;
 }
 
 .admin-link-btn:hover {
-  background-color: #e945601a;
-  border-color: #e94560;
-  color: #e94560;
+  background-color: rgba(91, 79, 224, 0.08);
+  border-color: #5B4FE0;
+  color: #5B4FE0;
 }
 
 .user-info {
@@ -148,7 +149,7 @@
 
 .user-email {
   font-size: 13px;
-  color: #ececf1;
+  color: #1E2130;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -158,8 +159,8 @@
 .logout-btn {
   width: 100%;
   background: none;
-  border: 1px solid #4d4d4f;
-  color: #8e8ea0;
+  border: 1px solid #E5E7EB;
+  color: #6B7280;
   padding: 8px 12px;
   border-radius: 6px;
   font-size: 12px;

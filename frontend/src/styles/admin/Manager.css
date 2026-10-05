@@ -4,7 +4,7 @@
 }
 
 .manager-loading {
-  color: #a0a0a0;
+  color: #6B7280;
   text-align: center;
   padding: 50px;
 }
@@ -18,13 +18,13 @@
 
 .manager-header h1 {
   font-size: 24px;
-  color: #fff;
+  color: #1E2130;
   margin: 0;
 }
 
 .btn-primary {
   padding: 10px 20px;
-  background-color: #e94560;
+  background-color: #5B4FE0;
   border: none;
   border-radius: 8px;
   color: #fff;
@@ -34,23 +34,23 @@
 }
 
 .btn-primary:hover {
-  background-color: #d63850;
+  background-color: #4F46E5;
 }
 
 .btn-secondary {
   padding: 10px 20px;
   background: none;
-  border: 1px solid #0f3460;
+  border: 1px solid #E5E7EB;
   border-radius: 8px;
-  color: #a0a0a0;
+  color: #6B7280;
   font-size: 14px;
   cursor: pointer;
   transition: all 0.2s;
 }
 
 .btn-secondary:hover {
-  border-color: #e94560;
-  color: #e94560;
+  border-color: #5B4FE0;
+  color: #5B4FE0;
 }
 
 .btn-icon {
@@ -68,7 +68,9 @@
 }
 
 .manager-table {
-  background-color: #16213e;
+  background-color: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
   border-radius: 12px;
   overflow: hidden;
 }
@@ -82,19 +84,19 @@
 .manager-table td {
   padding: 15px;
   text-align: left;
-  border-bottom: 1px solid #0f3460;
+  border-bottom: 1px solid #E5E7EB;
 }
 
 .manager-table th {
-  background-color: #0f3460;
-  color: #a0a0a0;
+  background-color: #F9FAFB;
+  color: #6B7280;
   font-size: 12px;
   text-transform: uppercase;
   font-weight: 600;
 }
 
 .manager-table td {
-  color: #fff;
+  color: #1E2130;
   font-size: 14px;
 }
 
@@ -104,7 +106,7 @@
 
 .empty-state {
   text-align: center;
-  color: #a0a0a0;
+  color: #6B7280;
   padding: 40px !important;
 }
 
@@ -118,7 +120,7 @@
 .thumbnail-placeholder {
   width: 50px;
   height: 50px;
-  background-color: #0f3460;
+  background-color: #F3F4F6;
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -134,7 +136,7 @@
 .audio-placeholder {
   width: 50px;
   height: 50px;
-  background-color: #0f3460;
+  background-color: #F3F4F6;
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -171,7 +173,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(17, 24, 39, 0.45);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -179,16 +181,17 @@
 }
 
 .modal {
-  background-color: #16213e;
+  background-color: #FFFFFF;
   border-radius: 12px;
   padding: 30px;
   width: 100%;
   max-width: 450px;
-  border: 1px solid #0f3460;
+  border: 1px solid #E5E7EB;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.10);
 }
 
 .modal h2 {
-  color: #fff;
+  color: #1E2130;
   margin: 0 0 25px 0;
   font-size: 20px;
 }
@@ -199,7 +202,7 @@
 
 .modal .form-group label {
   display: block;
-  color: #a0a0a0;
+  color: #6B7280;
   font-size: 13px;
   margin-bottom: 8px;
 }
@@ -208,17 +211,17 @@
 .modal .form-group select {
   width: 100%;
   padding: 12px;
-  background-color: #1a1a2e;
-  border: 1px solid #0f3460;
+  background-color: #FFFFFF;
+  border: 1px solid #E5E7EB;
   border-radius: 8px;
-  color: #fff;
+  color: #1E2130;
   font-size: 14px;
   outline: none;
 }
 
 .modal .form-group input:focus,
 .modal .form-group select:focus {
-  border-color: #e94560;
+  border-color: #5B4FE0;
 }
 
 .modal .form-group input[type="file"] {
