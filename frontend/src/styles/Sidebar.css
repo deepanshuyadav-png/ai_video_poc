@@ -1,11 +1,12 @@
 .sidebar {
   width: 260px;
   min-width: 260px;
-  background-color: #FAFAFB;
+  background-color: #F6F7FB;
   display: flex;
   flex-direction: column;
   height: 100vh;
   border-right: 1px solid #E5E7EB;
+  box-shadow: 1px 0 0 rgba(16, 24, 40, 0.02);
 }
 
 .sidebar-header {
@@ -35,7 +36,7 @@
 }
 
 .new-request-btn:hover {
-  background-color: #F3F4F6;
+  background-color: #F0F1F6;
 }
 
 .new-request-btn span {
@@ -64,7 +65,7 @@
 }
 
 .request-item:hover {
-  background-color: #F3F4F6;
+  background-color: #F0F1F6;
 }
 
 .request-item.active {

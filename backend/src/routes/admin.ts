@@ -46,4 +46,10 @@ router.put('/providers/:id', adminController.updateProviderConfig);
 router.patch('/providers/:id/activate', adminController.setActiveProviderConfig);
 router.delete('/providers/:id', adminController.deleteProviderConfig);
 
+// User routes (JSON body, no multer)
+router.get('/users', adminController.getUsers);
+router.post('/users', adminController.createUser);
+router.put('/users/:id', adminController.updateUser);
+router.delete('/users/:id', adminController.deleteUser);
+
 export default router;

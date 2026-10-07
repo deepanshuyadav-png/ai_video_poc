@@ -62,7 +62,7 @@
   padding: 32px;
   border-radius: var(--radius-xl);
   border: 1px solid var(--border-color);
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-md);
 }
 
 .auth-error {

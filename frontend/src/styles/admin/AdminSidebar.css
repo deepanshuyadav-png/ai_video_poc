@@ -1,10 +1,11 @@
 .admin-sidebar {
   width: 240px;
   min-width: 240px;
-  background-color: #FFFFFF;
+  background-color: #F6F7FB;
   display: flex;
   flex-direction: column;
   border-right: 1px solid #E5E7EB;
+  box-shadow: 1px 0 0 rgba(16, 24, 40, 0.02);
 }
 
 .admin-sidebar-header {
@@ -32,7 +33,7 @@
 }
 
 .back-to-app-btn:hover {
-  background-color: #F3F4F6;
+  background-color: #F0F1F6;
   color: #1E2130;
   border-color: #5B4FE0;
 }
@@ -59,7 +60,7 @@
 }
 
 .admin-nav-item:hover {
-  background-color: #F3F4F6;
+  background-color: #F0F1F6;
   color: #1E2130;
 }
 

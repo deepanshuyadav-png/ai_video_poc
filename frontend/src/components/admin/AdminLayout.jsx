@@ -3,6 +3,7 @@ import AdminSidebar from './AdminSidebar';
 import AvatarManager from './AvatarManager';
 import VoiceManager from './VoiceManager';
 import ProviderManager from './ProviderManager';
+import UserManager from './UserManager';
 import '../../styles/admin/AdminLayout.css';
 
 function AdminLayout({ user, onLogout }) {
@@ -13,6 +14,7 @@ function AdminLayout({ user, onLogout }) {
       case 'avatars': return <AvatarManager />;
       case 'voices': return <VoiceManager />;
       case 'providers': return <ProviderManager />;
+      case 'users': return <UserManager />;
       default: return <AvatarManager />;
     }
   };

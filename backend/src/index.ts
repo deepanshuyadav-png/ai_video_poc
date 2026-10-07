@@ -9,7 +9,7 @@ import adminRoutes from './routes/admin';
 import publicRoutes from './routes/public';
 import authMiddleware from './middleware/auth';
 import adminMiddleware from './middleware/admin';
-import { seedAdmin } from './seed';
+import { ensureSchema, seedAdmin } from './seed';
 
 dotenv.config();
 
@@ -42,6 +42,9 @@ app.use('/api/generation', authMiddleware, generationRoutes);
 app.listen(PORT, async () => {
   console.log(`Backend server running on port ${PORT}`);
   
+  // Ensure schema migrations before seeding
+  await ensureSchema();
+
   // Seed admin user on startup
   await seedAdmin();
 });

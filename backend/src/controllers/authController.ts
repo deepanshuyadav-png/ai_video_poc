@@ -55,6 +55,11 @@ const authController = {
         return;
       }
 
+      if (!user.is_active) {
+        res.status(403).json({ success: false, error: 'Account is inactive. Please contact an administrator.' });
+        return;
+      }
+
       const token = jwt.sign({ userId: user.id }, JWT_SECRET, { expiresIn: '7d' });
 
       res.json({

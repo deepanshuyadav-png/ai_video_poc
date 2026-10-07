@@ -3,6 +3,7 @@ import path from 'path';
 import AvatarModel from '../models/avatar';
 import VoiceModel from '../models/voice';
 import ProviderConfigModel from '../models/providerConfig';
+import UserModel from '../models/user';
 import { AuthRequest } from '../middleware/auth';
 
 const adminController = {
@@ -216,6 +217,121 @@ const adminController = {
       res.json({ success: true, message: 'Provider config deleted' });
     } catch (error) {
       res.status(500).json({ success: false, error: 'Failed to delete provider config' });
+    }
+  },
+
+  // Users
+  async getUsers(req: AuthRequest, res: Response): Promise<void> {
+    try {
+      const users = await UserModel.findAll();
+      res.json({ success: true, data: users });
+    } catch (error) {
+      res.status(500).json({ success: false, error: 'Failed to fetch users' });
+    }
+  },
+
+  async createUser(req: AuthRequest, res: Response): Promise<void> {
+    try {
+      const { email, password, role } = req.body;
+
+      if (!email || !password) {
+        res.status(400).json({ success: false, error: 'Email and password are required' });
+        return;
+      }
+
+      const normalizedRole = role === 'admin' ? 'admin' : 'user';
+
+      const existing = await UserModel.findByEmail(email);
+      if (existing) {
+        res.status(400).json({ success: false, error: 'Email already registered' });
+        return;
+      }
+
+      const user = await UserModel.create(email, password, normalizedRole);
+      res.status(201).json({ success: true, data: user });
+    } catch (error) {
+      console.error('Create user error:', error);
+      res.status(500).json({ success: false, error: 'Failed to create user' });
+    }
+  },
+
+  async updateUser(req: AuthRequest, res: Response): Promise<void> {
+    try {
+      const targetId = parseInt(req.params.id);
+      const actingAdminId = req.userId;
+      const { role, isActive } = req.body;
+
+      const hasRole = role !== undefined;
+      const hasIsActive = isActive !== undefined;
+      const normalizedIsActive = isActive === 'true' || isActive === true;
+
+      const target = await UserModel.findById(targetId);
+      if (!target) {
+        res.status(404).json({ success: false, error: 'User not found' });
+        return;
+      }
+
+      // Guardrail 1: self-protection
+      if (targetId === actingAdminId && ((hasRole && role !== 'admin') || (hasIsActive && !normalizedIsActive))) {
+        res.status(400).json({ success: false, error: 'You cannot deactivate or demote your own account' });
+        return;
+      }
+
+      // Guardrail 2: last active admin
+      const isDemotion = hasRole && role !== 'admin';
+      const isDeactivation = hasIsActive && !normalizedIsActive;
+      if ((isDemotion || isDeactivation) && target.role === 'admin' && target.is_active === true) {
+        const activeAdmins = await UserModel.countActiveAdmins();
+        if (activeAdmins <= 1) {
+          res.status(400).json({ success: false, error: 'Cannot remove the last active admin' });
+          return;
+        }
+      }
+
+      if (hasRole) {
+        await UserModel.updateRole(targetId, role === 'admin' ? 'admin' : 'user');
+      }
+      if (hasIsActive) {
+        await UserModel.setActive(targetId, normalizedIsActive);
+      }
+
+      const updated = await UserModel.findById(targetId);
+      res.json({ success: true, data: updated });
+    } catch (error) {
+      console.error('Update user error:', error);
+      res.status(500).json({ success: false, error: 'Failed to update user' });
+    }
+  },
+
+  async deleteUser(req: AuthRequest, res: Response): Promise<void> {
+    try {
+      const targetId = parseInt(req.params.id);
+      const actingAdminId = req.userId;
+
+      if (targetId === actingAdminId) {
+        res.status(400).json({ success: false, error: 'You cannot delete your own account' });
+        return;
+      }
+
+      const target = await UserModel.findById(targetId);
+      if (!target) {
+        res.status(404).json({ success: false, error: 'User not found' });
+        return;
+      }
+
+      if (target.role === 'admin' && target.is_active === true) {
+        const activeAdmins = await UserModel.countActiveAdmins();
+        if (activeAdmins <= 1) {
+          res.status(400).json({ success: false, error: 'Cannot remove the last active admin' });
+          return;
+        }
+      }
+
+      await UserModel.delete(targetId);
+      res.json({ success: true, message: 'User deleted' });
+    } catch (error) {
+      console.error('Delete user error:', error);
+      res.status(500).json({ success: false, error: 'Failed to delete user' });
     }
   },
 };

@@ -1,6 +1,15 @@
 import pool from './config/db';
 import bcrypt from 'bcryptjs';
 
+export const ensureSchema = async (): Promise<void> => {
+  try {
+    await pool.query('ALTER TABLE users ADD COLUMN IF NOT EXISTS is_active BOOLEAN DEFAULT true');
+    console.log('Schema ensured: users.is_active');
+  } catch (error) {
+    console.error('Error ensuring schema:', error);
+  }
+};
+
 export const seedAdmin = async (): Promise<void> => {
   try {
     const email = 'admin@example.com';
