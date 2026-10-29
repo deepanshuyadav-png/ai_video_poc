@@ -252,3 +252,74 @@ span.status-toggle {
 span.status-toggle:hover {
   opacity: 1;
 }
+
+/* --- Research: disease/strain managers --- */
+.strain-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+.strain-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 8px;
+  background-color: #EEF0FD;
+  color: #5B4FE0;
+  border-radius: 12px;
+  font-size: 12px;
+}
+
+.strain-chip.inactive {
+  background-color: #F3F4F6;
+  color: #9CA3AF;
+}
+
+.chip-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 11px;
+  padding: 0 1px;
+  opacity: 0.6;
+  line-height: 1;
+}
+
+.chip-btn:hover {
+  opacity: 1;
+}
+
+.strain-empty {
+  color: #9CA3AF;
+  font-size: 12px;
+  font-style: italic;
+}
+
+.btn-link {
+  background: none;
+  border: none;
+  color: #5B4FE0;
+  cursor: pointer;
+  font-size: 12px;
+  padding: 0;
+}
+
+.btn-link:hover {
+  text-decoration: underline;
+}
+
+.filter-expr {
+  font-size: 12px;
+  background-color: #F3F4F6;
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: #1E2130;
+}
+
+.clear-key-btn {
+  margin-top: 10px;
+  align-self: flex-start;
+  font-size: 13px;
+}

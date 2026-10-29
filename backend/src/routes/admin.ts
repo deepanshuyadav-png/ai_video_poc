@@ -3,6 +3,7 @@ import multer from 'multer';
 import path from 'path';
 import { FOLDERS } from '../config/storage';
 import adminController from '../controllers/adminController';
+import adminResearchController from '../controllers/adminResearchController';
 
 const router = Router();
 
@@ -51,5 +52,28 @@ router.get('/users', adminController.getUsers);
 router.post('/users', adminController.createUser);
 router.put('/users/:id', adminController.updateUser);
 router.delete('/users/:id', adminController.deleteUser);
+
+// ---- Research feature admin routes (JSON body) ----
+
+// Research settings (top-K, optional NCBI key)
+router.get('/research/settings', adminResearchController.getSettings);
+router.put('/research/settings', adminResearchController.updateSettings);
+
+// Diseases (returns nested strains)
+router.get('/research/diseases', adminResearchController.getDiseases);
+router.post('/research/diseases', adminResearchController.createDisease);
+router.put('/research/diseases/:id', adminResearchController.updateDisease);
+router.delete('/research/diseases/:id', adminResearchController.deleteDisease);
+
+// Strains
+router.post('/research/strains', adminResearchController.createStrain);
+router.put('/research/strains/:id', adminResearchController.updateStrain);
+router.delete('/research/strains/:id', adminResearchController.deleteStrain);
+
+// Filter options
+router.get('/research/filters', adminResearchController.getFilterOptions);
+router.post('/research/filters', adminResearchController.createFilterOption);
+router.put('/research/filters/:id', adminResearchController.updateFilterOption);
+router.delete('/research/filters/:id', adminResearchController.deleteFilterOption);
 
 export default router;

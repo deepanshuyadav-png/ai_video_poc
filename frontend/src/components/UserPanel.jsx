@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Sidebar from './Sidebar';
 import ChatArea from './ChatArea';
+import ResearchPanel from './research/ResearchPanel';
 import axios from 'axios';
 
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
@@ -9,6 +10,7 @@ const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
 function UserPanel({ user, onLogout }) {
   const [requests, setRequests] = useState([]);
   const [selectedRequest, setSelectedRequest] = useState(null);
+  const [view, setView] = useState('generation'); // 'generation' | 'research'
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -29,10 +31,16 @@ function UserPanel({ user, onLogout }) {
 
   const handleNewRequest = () => {
     setSelectedRequest(null);
+    setView('generation');
   };
 
   const handleSelectRequest = (request) => {
     setSelectedRequest(request);
+    setView('generation');
+  };
+
+  const handleGoToResearch = () => {
+    setView('research');
   };
 
   const handleSubmit = async (inputType, text, file, avatarId, voiceId) => {
@@ -90,11 +98,17 @@ function UserPanel({ user, onLogout }) {
         user={user}
         onLogout={onLogout}
         onGoToAdmin={user.role === 'admin' ? handleGoToAdmin : null}
+        onGoToResearch={handleGoToResearch}
+        activeView={view}
       />
-      <ChatArea
-        selectedRequest={selectedRequest}
-        onSubmit={handleSubmit}
-      />
+      {view === 'research' ? (
+        <ResearchPanel />
+      ) : (
+        <ChatArea
+          selectedRequest={selectedRequest}
+          onSubmit={handleSubmit}
+        />
+      )}
     </div>
   );
 }

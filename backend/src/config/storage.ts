@@ -8,6 +8,7 @@ export const FOLDERS = {
   images: path.join(STORAGE_PATH, 'images'),
   audio: path.join(STORAGE_PATH, 'audio'),
   videos: path.join(STORAGE_PATH, 'videos'),
+  ppts: path.join(STORAGE_PATH, 'ppts'),
 };
 
 export const initStorage = (): void => {

@@ -174,3 +174,36 @@
   border-color: #ef4444;
   color: #ef4444;
 }
+
+/* --- View switcher (Video Generation / PubMed Research) --- */
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 0 15px 10px;
+  border-bottom: 1px solid #E5E7EB;
+  margin-bottom: 8px;
+}
+
+.sidebar-nav-btn {
+  width: 100%;
+  text-align: left;
+  padding: 9px 12px;
+  background: none;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  color: #1E2130;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.sidebar-nav-btn:hover {
+  background-color: #F0F1F6;
+}
+
+.sidebar-nav-btn.active {
+  background-color: #EEF0FD;
+  color: #5B4FE0;
+  border-color: #5B4FE0;
+}

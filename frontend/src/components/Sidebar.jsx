@@ -1,6 +1,6 @@
 import '../styles/Sidebar.css';
 
-function Sidebar({ requests, selectedRequest, onSelectRequest, onNewRequest, user, onLogout, onGoToAdmin }) {
+function Sidebar({ requests, selectedRequest, onSelectRequest, onNewRequest, user, onLogout, onGoToAdmin, onGoToResearch, activeView }) {
   const formatDate = (dateStr) => {
     const date = new Date(dateStr);
     return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
@@ -25,6 +25,21 @@ function Sidebar({ requests, selectedRequest, onSelectRequest, onNewRequest, use
       <button className="new-request-btn" onClick={onNewRequest}>
         <span>+</span> New Request
       </button>
+
+      <div className="sidebar-nav">
+        <button
+          className={`sidebar-nav-btn ${activeView === 'generation' ? 'active' : ''}`}
+          onClick={onNewRequest}
+        >
+          🎬 Video Generation
+        </button>
+        <button
+          className={`sidebar-nav-btn ${activeView === 'research' ? 'active' : ''}`}
+          onClick={onGoToResearch}
+        >
+          🔬 PubMed Research
+        </button>
+      </div>
 
       <div className="requests-list">
         {requests.length === 0 ? (

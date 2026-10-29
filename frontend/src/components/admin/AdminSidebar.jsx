@@ -8,6 +8,9 @@ function AdminSidebar({ activeTab, onTabChange, user, onLogout }) {
     { id: 'avatars', label: 'Avatars', icon: '👤' },
     { id: 'voices', label: 'Voices', icon: '🎙️' },
     { id: 'providers', label: 'Configurations', icon: '⚙️' },
+    { id: 'diseases', label: 'Diseases', icon: '🧬' },
+    { id: 'research-filters', label: 'Research Filters', icon: '🔎' },
+    { id: 'research-settings', label: 'Research Settings', icon: '📚' },
     { id: 'users', label: 'Users', icon: '👥' },
   ];
 

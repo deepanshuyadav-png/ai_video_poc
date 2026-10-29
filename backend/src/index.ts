@@ -7,6 +7,7 @@ import authRoutes from './routes/auth';
 import generationRoutes from './routes/generation';
 import adminRoutes from './routes/admin';
 import publicRoutes from './routes/public';
+import researchRoutes from './routes/research';
 import authMiddleware from './middleware/auth';
 import adminMiddleware from './middleware/admin';
 import { ensureSchema, seedAdmin } from './seed';
@@ -37,6 +38,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/admin', authMiddleware, adminMiddleware, adminRoutes);
 app.use('/api', authMiddleware, publicRoutes);
 app.use('/api/generation', authMiddleware, generationRoutes);
+app.use('/api/research', authMiddleware, researchRoutes);
 
 // Start server and seed admin
 app.listen(PORT, async () => {
